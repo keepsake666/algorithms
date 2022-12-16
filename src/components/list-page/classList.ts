@@ -17,7 +17,7 @@ interface ILinkedList<T> {
   delIndex: (index: number) => void;
   prepend: (element: T) => void;
   fromArray: (value: T[]) => void;
-  toArray: () => T[] | null;
+  toArray: () => Node<T>[] | null;
 }
 
 export class LinkedList<T> implements ILinkedList<T> {
@@ -138,9 +138,9 @@ export class LinkedList<T> implements ILinkedList<T> {
   }
 
   toArray() {
-    const nodes: any = [];
+    const nodes: Node<T>[] = [];
 
-    let currentNode = this.head;
+    let currentNode: Node<T> | any = this.head;
 
     // Перебираем все узлы и добавляем в массив.
     while (currentNode) {

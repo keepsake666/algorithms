@@ -7,12 +7,12 @@ import {Button} from "../ui/button/button";
 import {Circle} from "../ui/circle/circle";
 import {delay} from "../../utils";
 export const FibonacciPage: React.FC = () => {
-  const [value, setValue] = useState<number | string>("");
+  const [value, setValue] = useState<number>(0);
   const [fibonacci, setFibonacci] = useState<number[]>([]);
   const [loading, setLoading] = useState(false);
 
   const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setValue(Number(e.target.value));
   };
   const buttonDisabled = !(1 <= value && value <= 19);
   const fibIterative = async (n: number): Promise<void> => {
@@ -28,15 +28,15 @@ export const FibonacciPage: React.FC = () => {
     setLoading(false);
   };
   const clickFib = () => {
-    fibIterative(Number(value));
-    setValue("");
+    fibIterative(value);
+    setValue(0);
   };
   return (
     <SolutionLayout title="Последовательность Фибоначчи">
       <div className={style.form}>
         <Input
             value={value}
-            type={"text"}
+            type={"number"}
             maxLength={2}
             max={19}
             isLimitText={true}

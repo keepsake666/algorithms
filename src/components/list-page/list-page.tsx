@@ -36,7 +36,7 @@ export const ListPage: React.FC = () => {
   };
 
   const newListArr = () => {
-    let arr: TLinkedList[];
+    let arr:TLinkedList[];
     arr = list.toArray();
     const mapArr: TMap[] = arr.map((item) => {
       return {
@@ -199,7 +199,7 @@ export const ListPage: React.FC = () => {
   return (
       <SolutionLayout title="Связный список">
         <div className={style.container}>
-          <form className={style.form}>
+          <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
                 type={"text"}
                 maxLength={4}
@@ -265,7 +265,7 @@ export const ListPage: React.FC = () => {
                 }
             />
           </form>
-          <form className={style.form}>
+          <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
                 type={"number"}
                 extraClass={style.input}
@@ -299,6 +299,7 @@ export const ListPage: React.FC = () => {
                     loading.append ||
                     loading.delTail ||
                     loading.delHead ||
+                    !linkedList.length ||
                     maxIndex
                 }
             />

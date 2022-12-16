@@ -2,12 +2,12 @@ import {ElementStates} from "./element-states";
 
 export type TLinkedList = {
     value: string;
-    next: TLinkedList;
+    next: TLinkedList | null;
 };
 
 export type TMap = {
     value: string;
-    next: TLinkedList;
+    next: TLinkedList | null;
     state: ElementStates;
     head?: TLinkedList | null;
     tail?: TLinkedList | null;

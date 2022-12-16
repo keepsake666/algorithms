@@ -57,7 +57,7 @@ export const StringComponent: React.FC = () => {
               extraClass={style.input}
               onChange={changeString}
           />{" "}
-          <Button isLoader={loading} text="Развернуть" onClick={revers} />
+          <Button isLoader={loading} text="Развернуть" onClick={revers} disabled={!string} />
         </div>
         <ul className={style.list}>
           {reverseString.map((item, index) => (
