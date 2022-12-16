@@ -62,8 +62,10 @@ export const ListPage: React.FC = () => {
     setValue("");
     list.prepend(value);
     const listArr = newListArr();
-    linkedList[0].head = { value: value, next: listArr[0] };
-    listArr[0].state = ElementStates.Modified;
+    if (linkedList.length) {
+      linkedList[0].head = { value: value, next: null };
+      listArr[0].state = ElementStates.Modified;
+    }
     setLinkedList([...linkedList]);
     await delay(SHORT_DELAY_IN_MS);
     setLinkedList(listArr);
@@ -100,11 +102,13 @@ export const ListPage: React.FC = () => {
     setValue("");
     list.append(value);
     const listArr = newListArr();
-    linkedList[listArr.length - 2].tail = {
-      value: value,
-      next: listArr[listArr.length - 1],
-    };
-    listArr[listArr.length - 1].state = ElementStates.Modified;
+    if (linkedList.length) {
+      linkedList[listArr.length - 2].tail = {
+        value: value,
+        next: listArr[listArr.length - 1],
+      };
+      listArr[listArr.length - 1].state = ElementStates.Modified;
+    }
     setLinkedList([...linkedList]);
     await delay(SHORT_DELAY_IN_MS);
     setLinkedList(listArr);

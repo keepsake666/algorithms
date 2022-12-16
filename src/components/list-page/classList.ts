@@ -140,7 +140,7 @@ export class LinkedList<T> implements ILinkedList<T> {
   toArray() {
     const nodes: Node<T>[] = [];
 
-    let currentNode: Node<T> | null = this.head;
+    let currentNode: Node<T> | any = this.head;
 
     // Перебираем все узлы и добавляем в массив.
     while (currentNode) {
