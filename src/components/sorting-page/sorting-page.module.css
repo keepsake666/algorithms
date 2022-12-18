@@ -1,0 +1,31 @@
+.radio__container {
+  display: flex;
+}
+
+.form {
+  padding: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__container {
+  display: flex;
+}
+
+.list {
+  max-width: 1040px;
+  gap: 16px;
+  width: 100%;
+  padding: 0;
+  margin: 48px auto 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
