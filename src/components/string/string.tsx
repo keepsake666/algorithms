@@ -50,6 +50,7 @@ export const StringComponent: React.FC = () => {
       <SolutionLayout title="Строка">
         <div className={style.form}>
           <Input
+              data-cy="input"
               value={string}
               maxLength={11}
               max={0}
@@ -57,7 +58,7 @@ export const StringComponent: React.FC = () => {
               extraClass={style.input}
               onChange={changeString}
           />{" "}
-          <Button isLoader={loading} text="Развернуть" onClick={revers} disabled={!string} />
+          <Button data-cy="button" isLoader={loading} text="Развернуть" onClick={revers} disabled={!string} />
         </div>
         <ul className={style.list}>
           {reverseString.map((item, index) => (
