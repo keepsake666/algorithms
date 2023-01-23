@@ -56,6 +56,7 @@ export const StackPage: React.FC = () => {
         <div className={style.container}>
           <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
+                data-cy="input"
                 value={value}
                 type={"text"}
                 maxLength={4}
@@ -64,6 +65,7 @@ export const StackPage: React.FC = () => {
                 onChange={changeValue}
             />{" "}
             <Button
+                data-cy="button_add"
                 text="Добавить"
                 extraClass="mr-6"
                 onClick={() => push(value)}
@@ -71,6 +73,7 @@ export const StackPage: React.FC = () => {
                 disabled={loading.pop || loading.clear || minLen}
             />
             <Button
+                data-cy="button_delete"
                 text="Удалить"
                 extraClass="mr-40"
                 onClick={pop}
@@ -78,6 +81,7 @@ export const StackPage: React.FC = () => {
                 disabled={loading.push || loading.clear || !arr.length}
             />
             <Button
+                data-cy="button_clear"
                 text="Очистить"
                 onClick={clear}
                 isLoader={loading.clear}

@@ -1,6 +1,6 @@
 import {border} from "./constants";
 
-describe('тестирование компонента строка', () => {
+describe('тестирование компонента fibonacci', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/fibonacci')
     })
