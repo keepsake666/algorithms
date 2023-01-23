@@ -34,7 +34,7 @@ export const StringComponent: React.FC = () => {
       start++;
       end--;
       setReverseString([...splitString]);
-      await delay(1000);
+      await delay(DELAY_IN_MS);
       setCurrentIndex((i) => i + 1);
     }
     setCurrentIndex((i) => i + 1);
@@ -62,8 +62,9 @@ export const StringComponent: React.FC = () => {
         </div>
         <ul className={style.list}>
           {reverseString.map((item, index) => (
-              <li key={index} className={style.list__item}>
+              <li data-cy="list" key={index} className={style.list__item}>
                 <Circle
+                    data-cy="circle"
                     letter={item}
                     state={state(currentIndex, index, reverseString)}
                 ></Circle>
