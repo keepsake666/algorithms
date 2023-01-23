@@ -35,6 +35,7 @@ export const FibonacciPage: React.FC = () => {
     <SolutionLayout title="Последовательность Фибоначчи">
       <div className={style.form}>
         <Input
+            data-cy="input"
             value={value}
             type={"number"}
             maxLength={2}
@@ -44,6 +45,7 @@ export const FibonacciPage: React.FC = () => {
             onChange={changeValue}
         />{" "}
         <Button
+            data-cy="button"
             isLoader={loading}
             text="Расчитать"
             onClick={clickFib}
