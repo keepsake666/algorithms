@@ -9,7 +9,8 @@ describe('тестирование компонента строка', () => {
         cy.get("[data-cy=\"button\"]").should('be.disabled')
     });
 
-    it('строка разворачивается корректно', async () => {
+    it('строка разворачивается корректно', function () {
+        cy.clock()
         const string = 'qwert';
         cy.get("[data-cy=\"input\"]").type(string)
         cy.get("[data-cy=\"button\"]").should('not.disabled').click().should('be.disabled')
@@ -26,7 +27,7 @@ describe('тестирование компонента строка', () => {
                         .and('have.text', string[index]);
                 }
             });
-        cy.wait(1000)
+        cy.tick(1000)
             .then(() => {
             })
             .get("p[data-cy=\"circle_text\"]")
@@ -42,7 +43,7 @@ describe('тестирование компонента строка', () => {
                         .and('have.text', string[index]);
                 }
             });
-        cy.wait(1000)
+        cy.tick(1000)
             .then(() => {
             })
             .get("p[data-cy=\"circle_text\"]")
@@ -62,7 +63,7 @@ describe('тестирование компонента строка', () => {
                         .and('have.text', string[index]);
                 }
             });
-        cy.wait(1000)
+        cy.tick(1000)
             .then(() => {
             })
             .get("p[data-cy=\"circle_text\"]")
