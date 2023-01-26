@@ -1,6 +1,6 @@
 describe('проверки работы роутинга', function() {
     beforeEach(function() {
-        cy.visit('http://localhost:3000');
+        cy.visit('/');
     });
     it('страница компонента строки', ()=> {
         cy.get('a[href*="/recursion"]').click()

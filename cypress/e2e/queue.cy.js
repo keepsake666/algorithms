@@ -1,18 +1,18 @@
-import {border} from "./constants";
+import {border, button_add, button_clear, button_delete, circle_text, input} from "./constants";
 
 describe('тестирование компонента queue', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/queue')
+        cy.visit('queue')
     })
     it('если в инпуте пусто, то кнопка добавления недоступна', function () {
-        cy.get("[data-cy=\"input\"]").should('have.value', '')
-        cy.get("[data-cy=\"button_add\"]").should('be.disabled')
+        cy.get(input).should('have.value', '')
+        cy.get(button_add).should('be.disabled')
     });
     it('правильность добавления элемента в очередь', function () {
         cy.clock()
-        cy.get("[data-cy=\"input\"]").type("1").should('have.value', '1')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
-        cy.get("p[data-cy=\"circle_text\"]").parent()
+        cy.get(input).type("1").should('have.value', '1')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
+        cy.get(circle_text).parent()
             .should('have.length', 6)
             .each((item, index) => {
                 if (index === 0) {
@@ -28,9 +28,9 @@ describe('тестирование компонента queue', () => {
                         .and('have.css', 'border', border.default)
                 }
             })
-        cy.get("[data-cy=\"input\"]").type("2").should('have.value', '2')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
-        cy.get("p[data-cy=\"circle_text\"]").parent()
+        cy.get(input).type("2").should('have.value', '2')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
+        cy.get(circle_text).parent()
             .should('have.length', 6)
             .each((item, index) => {
                 if (index === 0) {
@@ -57,13 +57,13 @@ describe('тестирование компонента queue', () => {
     });
     it(' правильность удаления элемента из очереди ', function () {
         cy.clock()
-        cy.get("[data-cy=\"input\"]").type("1").should('have.value', '1')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
+        cy.get(input).type("1").should('have.value', '1')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
         cy.tick(500)
-        cy.get("[data-cy=\"input\"]").type("2").should('have.value', '2')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
+        cy.get(input).type("2").should('have.value', '2')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
         cy.tick(500)
-        cy.get("p[data-cy=\"circle_text\"]").parent()
+        cy.get(circle_text).parent()
             .should('have.length', 6)
             .each((item, index) => {
                 if (index === 0) {
@@ -74,8 +74,8 @@ describe('тестирование компонента queue', () => {
                         .should('have.text', '2')
                 }
             })
-        cy.get("[data-cy=\"button_delete\"]").click()
-        cy.get("p[data-cy=\"circle_text\"]").parent()
+        cy.get(button_delete).click()
+        cy.get(circle_text).parent()
             .should('have.length', 6)
             .each((item, index) => {
                 if (index === 0) {
@@ -103,14 +103,14 @@ describe('тестирование компонента queue', () => {
     });
     it('поведение кнопки «Очистить» ', function () {
         cy.clock()
-        cy.get("[data-cy=\"input\"]").type("1").should('have.value', '1')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
+        cy.get(input).type("1").should('have.value', '1')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
         cy.tick(500)
-        cy.get("[data-cy=\"input\"]").type("2").should('have.value', '2')
-        cy.get("[data-cy=\"button_add\"]").should('not.disabled').click().should('be.disabled')
+        cy.get(input).type("2").should('have.value', '2')
+        cy.get(button_add).should('not.disabled').click().should('be.disabled')
         cy.tick(500)
-        cy.get("[data-cy=\"button_clear\"]").click()
-        cy.get("p[data-cy=\"circle_text\"]").parent()
+        cy.get(button_clear).click()
+        cy.get(circle_text).parent()
             .should('have.length', 6)
             .each((item) => {
                 cy.wrap(item)
