@@ -205,6 +205,7 @@ export const ListPage: React.FC = () => {
         <div className={style.container}>
           <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
+                data-cy="input"
                 type={"text"}
                 maxLength={4}
                 isLimitText={true}
@@ -213,6 +214,7 @@ export const ListPage: React.FC = () => {
                 onChange={changeValue}
             />
             <Button
+                data-cy="button_add_head"
                 text="Добавить в head"
                 extraClass={style.button_small}
                 onClick={() => prepend(value)}
@@ -227,6 +229,7 @@ export const ListPage: React.FC = () => {
                 }
             />
             <Button
+                data-cy="button_add_tail"
                 text="Добавить в tail"
                 extraClass={style.button_small}
                 onClick={() => append(value)}
@@ -241,6 +244,7 @@ export const ListPage: React.FC = () => {
                 }
             />
             <Button
+                data-cy="button_delete_head"
                 text="Удалить из head"
                 extraClass={style.button_small}
                 onClick={() => delHead()}
@@ -255,6 +259,7 @@ export const ListPage: React.FC = () => {
                 }
             />
             <Button
+                data-cy="button_delete_tail"
                 text="Удалить из tail"
                 extraClass={style.button_small}
                 onClick={() => delTail()}
@@ -271,6 +276,7 @@ export const ListPage: React.FC = () => {
           </form>
           <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
+                data-cy="input_index"
                 type={"number"}
                 extraClass={style.input}
                 value={index}
@@ -278,6 +284,7 @@ export const ListPage: React.FC = () => {
                 max={linkedList.length - 1}
             />
             <Button
+                data-cy="button_add_index"
                 text="Добавить по индексу"
                 extraClass={style.button}
                 onClick={() => delItemIndex(value, index)}
@@ -293,6 +300,7 @@ export const ListPage: React.FC = () => {
                 }
             />
             <Button
+                data-cy="button_delete_index"
                 text="Удалить по индексу"
                 extraClass={style.button}
                 onClick={() => addItemIndex(index)}

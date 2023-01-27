@@ -34,7 +34,7 @@ export const StringComponent: React.FC = () => {
       start++;
       end--;
       setReverseString([...splitString]);
-      await delay(1000);
+      await delay(DELAY_IN_MS);
       setCurrentIndex((i) => i + 1);
     }
     setCurrentIndex((i) => i + 1);
@@ -50,6 +50,7 @@ export const StringComponent: React.FC = () => {
       <SolutionLayout title="Строка">
         <div className={style.form}>
           <Input
+              data-cy="input"
               value={string}
               maxLength={11}
               max={0}
@@ -57,12 +58,13 @@ export const StringComponent: React.FC = () => {
               extraClass={style.input}
               onChange={changeString}
           />{" "}
-          <Button isLoader={loading} text="Развернуть" onClick={revers} disabled={!string} />
+          <Button data-cy="button" isLoader={loading} text="Развернуть" onClick={revers} disabled={!string} />
         </div>
         <ul className={style.list}>
           {reverseString.map((item, index) => (
-              <li key={index} className={style.list__item}>
+              <li data-cy="list" key={index} className={style.list__item}>
                 <Circle
+                    data-cy="circle"
                     letter={item}
                     state={state(currentIndex, index, reverseString)}
                 ></Circle>

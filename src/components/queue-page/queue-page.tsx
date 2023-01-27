@@ -59,6 +59,7 @@ export const QueuePage: React.FC = () => {
         <div className={style.container}>
           <form className={style.form} onSubmit={event => event.preventDefault()}>
             <Input
+                data-cy="input"
                 value={value}
                 type={"text"}
                 maxLength={4}
@@ -67,6 +68,7 @@ export const QueuePage: React.FC = () => {
                 onChange={changeValue}
             />{" "}
             <Button
+                data-cy="button_add"
                 text="Добавить"
                 extraClass="mr-6"
                 onClick={() => enqueue(value)}
@@ -79,6 +81,7 @@ export const QueuePage: React.FC = () => {
                 }
             />
             <Button
+                data-cy="button_delete"
                 text="Удалить"
                 extraClass="mr-40"
                 onClick={dequeue}
@@ -86,6 +89,7 @@ export const QueuePage: React.FC = () => {
                 disabled={loading.enqueue || loading.clear || queue.isEmpty()}
             />
             <Button
+                data-cy="button_clear"
                 text="Очистить"
                 onClick={clear}
                 isLoader={loading.clear}
