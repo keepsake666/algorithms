@@ -15,5 +15,7 @@
 ### Технологии:
 * Верстка сайта выполнена с применением  Flexbox;
 * Проект создан на React с применением хуков и типизорован с помощью TypeScript;
+* Unit-тестирование с использование jest;
+* E2E тестирование с использованием cypress;
 
 [Figma макет](https://www.figma.com/file/RIkypcTQN5d37g7RRTFid0/Algososh_external_link?node-id=0%3A1).
