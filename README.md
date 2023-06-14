@@ -18,3 +18,26 @@
 * E2E тестирование с использованием cypress;
 
 [Figma макет](https://www.figma.com/file/RIkypcTQN5d37g7RRTFid0/Algososh_external_link?node-id=0%3A1).
+
+## Установка и запуск в режиме разработки
+
+1. Клонировать репозиторий
+
+   ```shell
+   git clone git@github.com:keepsake666/algorithms.git
+   cd algorithms
+   ```
+
+2. Установить зависимости
+
+   ```shell
+   npm i
+   ```
+
+3. Запустить скрипт
+
+   ```shell
+   npm run start
+   ```
+
+4. Браузер автоматически откроет новую вкладку с адресом локального сервера http://localhost:3000/
